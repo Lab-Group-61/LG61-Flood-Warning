@@ -18,6 +18,7 @@ station_list = build_station_list() # Build a list of stations (temporary for te
 def stations_by_distance(stations,p):
     output = []
     for i in range(len(stations)):
-        st_id = (stations[i].name,stations[i].town,stations[i].coord)
+        st_name_and_town = "{} in {}".format(stations[i].name,stations[i].town)
+        st_id = (st_name_and_town,stations[i].coord)
         output.append(st_id)
     return(output)
