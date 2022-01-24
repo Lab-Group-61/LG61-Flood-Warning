@@ -11,6 +11,7 @@ from .station import MonitoringStation
 
 # Notes from Matthew: 
 # "From . import X" means to import module X from the current directory.
+# Which is almost same as "import X "here, so no worries.
 
 def build_station_list(use_cache=True):
     """Build and return a list of all river level monitoring stations
