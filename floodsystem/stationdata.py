@@ -9,6 +9,8 @@ JSON objects fetched from the Internet and
 from . import datafetcher
 from .station import MonitoringStation
 
+# Notes from Matthew: 
+# "From . import X" means to import module X from the current directory.
 
 def build_station_list(use_cache=True):
     """Build and return a list of all river level monitoring stations
