@@ -22,3 +22,13 @@ def stations_by_distance(stations,p):
         st_id = (st_name_and_town,stations[i].coord)
         output.append(st_id)
     return(output)
+
+
+
+def rivers_with_station(stations):
+    # input (stations)：a list containing the names of stations
+    # ouput (river_involved): The set containing names of rivers related to any of the station
+    river_involved = []
+    for station in stations:
+        river_involved.append(station.river)
+    return set(river_involved)
