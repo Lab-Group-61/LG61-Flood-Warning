@@ -12,7 +12,8 @@ from .station import MonitoringStation
 
 from haversine import haversine, Unit
 
-def stations_by_distance(stations,p):
+def stations_by_distance(stations,p): 
+    #This function sorts a list of MonitoringStations by their distance from a point p
     output = []
     for i in range(len(stations)):
         st_name_and_town = "{} in {}".format(stations[i].name,stations[i].town)
