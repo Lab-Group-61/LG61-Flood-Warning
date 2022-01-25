@@ -23,7 +23,7 @@ def stations_by_distance(stations,p):
     return(sorted_output)
 
 def stations_within_radius(stations, centre, r):
-    # This function produces a sroted list of staion names within a radius of r from a designated centre
+    # This function produces a sorted list of staion names within a radius of r from a designated centre
     output = []
     for i in range(len(stations)):
         if haversine(centre, stations[i].coord) <= r:
