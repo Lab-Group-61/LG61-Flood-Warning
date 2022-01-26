@@ -12,3 +12,5 @@ for item in range(0,len(station_list),400):
 #Call the function to print all the rivers in "test_stations"
 print(floodsystem.geo.rivers_with_station(testing_stations))
 print(floodsystem.geo.stations_by_river(testing_stations))
+
+# The last bit is to sort the output set / dict
