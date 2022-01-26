@@ -1,7 +1,8 @@
 import floodsystem.geo
+import floodsystem.stationdata
 
 # Generate a bunch of station and put them into the list "test_stations"
-station_list = (floodsystem.geo.station_list)
+station_list = floodsystem.stationdata.build_station_list()
 testing_stations = []
 
 for item in range(0,len(station_list),100):

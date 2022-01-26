@@ -13,17 +13,16 @@ from .station import MonitoringStation
 from haversine import haversine, Unit
 
 def stations_by_distance(stations,p): 
-    # This function sorts a list of MonitoringStations by their distance from a point p
+    # This function sorts a list of MonitoringStations by their distance from a point p (Task 1B)
     output = []
     for i in range(len(stations)):
-        st_name_and_town = "{} in {}".format(stations[i].name,stations[i].town)
-        st_id = (st_name_and_town,haversine(p,stations[i].coord))
+        st_id = (stations[i].name,stations[i].town,haversine(p,stations[i].coord))
         output.append(st_id)
-    sorted_output = sorted_by_key(output,1) 
+    sorted_output = sorted_by_key(output,2) 
     return(sorted_output)
 
 def stations_within_radius(stations, centre, r):
-    # This function produces a sorted list of station names within a radius of r from a designated centre
+    # This function produces a sorted list of station names within a radius of r from a designated centre (Task 1C)
     output = []
     for i in range(len(stations)):
         if haversine(centre, stations[i].coord) <= r:
