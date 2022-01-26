@@ -4,9 +4,10 @@ import floodsystem.geo
 station_list = (floodsystem.geo.station_list)
 testing_stations = []
 
-for item in range(0,len(station_list),100):
+for item in range(0,len(station_list),400):
     testing_stations.append(station_list[item])
 
 
 #Call the function to print all the rivers in "test_stations"
 print(floodsystem.geo.rivers_with_station(testing_stations))
+print(floodsystem.geo.stations_by_river(testing_stations))
