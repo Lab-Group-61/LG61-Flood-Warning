@@ -5,7 +5,6 @@
 geographical data.
 
 """
-from .stationdata import build_station_list #temporary for testing
 
 from .utils import sorted_by_key  # noqa
 
@@ -13,16 +12,23 @@ from .station import MonitoringStation
 
 from haversine import haversine, Unit
 
-station_list = build_station_list() # Build a list of stations (temporary for testing)
-
-def stations_by_distance(stations,p):
+def stations_by_distance(stations,p): 
+    # This function sorts a list of MonitoringStations by their distance from a point p (Task 1B)
     output = []
     for i in range(len(stations)):
-        st_name_and_town = "{} in {}".format(stations[i].name,stations[i].town)
-        st_id = (st_name_and_town,stations[i].coord)
+        st_id = (stations[i].name,stations[i].town,haversine(p,stations[i].coord))
         output.append(st_id)
-    return(output)
+    sorted_output = sorted_by_key(output,2) 
+    return(sorted_output)
 
+def stations_within_radius(stations, centre, r):
+    # This function produces a sorted list of station names within a radius of r from a designated centre (Task 1C)
+    output = []
+    for i in range(len(stations)):
+        if haversine(centre, stations[i].coord) <= r:
+            output.append(stations[i].name)
+    output.sort()
+    return output
 
 
 def rivers_with_station(stations):
