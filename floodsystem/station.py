@@ -39,16 +39,20 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
     
-    def typical_range_consistent(self): # Method that checks high/low range data for consistency (Task 1F)
-        if self.typical_range[0] < self.typical_range[1]:
-            return True
-        else:
+    def typical_range_consistent(self): 
+        # Method that checks high/low range data for consistency (Task 1F)
+        if self.typical_range == None:
             return False
+        elif self.typical_range[0] > self.typical_range[1]:
+            return False
+        else:
+            return True
 
-def inconsistent_typical_range_stations(stations): # Function that returns a sorted list of MonitoringStations that have incosistent high/low range data (Task 1F)
+def inconsistent_typical_range_stations(stations): 
+    # Function that returns a sorted list of MonitoringStations that have incosistent high/low range data (Task 1F)
     output = []
     for i in range(len(stations)):
-        if stations[i].typical_range_consistent is False:
+        if stations[i].typical_range_consistent() == False:
             output.append(stations[i].name)
     output.sort()
     return output
