@@ -33,19 +33,19 @@ def stations_within_radius(stations, centre, r):
 
 def rivers_with_station(stations):
     # input (stations)：a list containing the names of stations
-    # ouput (river_involved): The set containing names of rivers related to 
+    # ouput (river_involved): The list containing names of rivers related to 
     # any of the station in the input list
     river_involved = []
     for station in stations:
         river_involved.append(station.river)
-    return set(river_involved)
+    return sorted(list(set(river_involved)))
 
 def stations_by_river(stations):
-    # input: a list of stations
-    # output (rivers_mapping) : a dictionary that maps the names of the rivers 
+    # Input: a list of stations
+    # Output (rivers_mapping) : a dictionary that maps the names of the rivers 
     # in the inputs to a list containing the related station names
 
-    # initialize the dictionary with keywords
+    # initialize the dictionary with keywords (rivers)
     # the river_with_station function is called to find the names of rivers
     river_mapping = {}
     the_rivers_involved = rivers_with_station(stations)

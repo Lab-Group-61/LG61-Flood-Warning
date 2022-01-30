@@ -1,16 +1,18 @@
 import floodsystem.geo
 import floodsystem.stationdata
 
-# Generate a bunch of station and put them into the list "test_stations"
+
 station_list = floodsystem.stationdata.build_station_list()
-testing_stations = []
 
-for item in range(0,len(station_list),400):
-    testing_stations.append(station_list[item])
+# part 1: 
+river_list = floodsystem.geo.rivers_with_station(station_list)
 
+print("{} stations".format(len(river_list)))
 
-#Call the function to print all the rivers in "test_stations"
-print(floodsystem.geo.rivers_with_station(testing_stations))
-print(floodsystem.geo.stations_by_river(testing_stations))
+print("First 10 - {}".format(river_list[0:10]))
 
-# The last bit is to sort the output set / dict
+# part 2:
+the_mapping = floodsystem.geo.stations_by_river(station_list)
+print(sorted(the_mapping["River Cam"]))
+print(sorted(the_mapping["River Aire"]))
+print(sorted(the_mapping["River Thames"]))
