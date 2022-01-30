@@ -58,3 +58,12 @@ def stations_by_river(stations):
         river_mapping[station.river].append(station.name)
         
     return river_mapping
+
+def rivers_by_station_number(stations, N):
+    # calling station_by_river (in task 1D, part 2)
+    input_rivers = stations_by_river(stations)
+    
+    for key in input_rivers:
+        input_rivers[key] = len(input_rivers[key])
+
+    return input_rivers
