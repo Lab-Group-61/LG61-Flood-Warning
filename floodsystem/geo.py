@@ -64,16 +64,17 @@ def rivers_by_station_number(stations, N):
     # output: a list containing first Nth stations with largest number of stations
 
 
-    # calling station_by_river(in task 1D, part 2) to find the river-station dictionary
+    # calling station_by_river(in task 1D, part 2) to find the river->station dictionary
     input_rivers = stations_by_river(stations)
     
-    # change the river-station dictionary to river-station_number dictionary
+    # temp is the river->station_number dictionary
+    temp = []
     for key in input_rivers:
-        input_rivers[key] = len(input_rivers[key])
+        temp.append((key,len(input_rivers[key])))
 
     # sort the dictionary and turn into a list containing (river,station number) tuples, 
     # sorted by station number
-    sorted_river = [(k, v) for k, v in sorted(input_rivers.items(), reverse = True, key=lambda item: item[1])] 
+    sorted_river = sorted_by_key(temp,1, reverse= True)
     
     # include the rivers with repeated number of stations into the output
     repeated_index = True # to record if there is any repitition
