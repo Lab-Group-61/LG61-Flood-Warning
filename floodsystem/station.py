@@ -51,9 +51,9 @@ class MonitoringStation:
 def inconsistent_typical_range_stations(stations): 
     # Function that returns a sorted list of MonitoringStations that have incosistent high/low range data (Task 1F)
     output = []
-    for i in range(len(stations)):
-        if stations[i].typical_range_consistent() == False:
-            output.append(stations[i].name)
+    for station in stations:
+        if station.typical_range_consistent() == False:
+            output.append(station.name)
     output.sort()
     return output
         
