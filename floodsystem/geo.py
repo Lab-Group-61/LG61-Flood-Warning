@@ -60,10 +60,29 @@ def stations_by_river(stations):
     return river_mapping
 
 def rivers_by_station_number(stations, N):
-    # calling station_by_river (in task 1D, part 2)
+    # input: a list of stations and an integer N
+    # output: a list containing first Nth stations with largest number of stations
+
+
+    # calling station_by_river(in task 1D, part 2) to find the river-station dictionary
     input_rivers = stations_by_river(stations)
     
+    # change the river-station dictionary to river-station_number dictionary
     for key in input_rivers:
         input_rivers[key] = len(input_rivers[key])
 
-    return input_rivers
+    # sort the dictionary and turn into a list containing (river,station number) tuples, 
+    # sorted by station number
+    sorted_river = [(k, v) for k, v in sorted(input_rivers.items(), reverse = True, key=lambda item: item[1])] 
+    
+    # include the rivers with repeated number of stations into the output
+    repeated_index = True # to record if there is any repitition
+    i = N # i is the actually size of output list. i = N + repeated number of river at position N
+    while repeated_index == True:
+        if sorted_river[i][1] == sorted_river[i-1][1]:
+            i += 1
+        else:
+            repeated_index = False
+    
+    # return the first ith tuples
+    return sorted_river[0:i]

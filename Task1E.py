@@ -4,6 +4,6 @@ import floodsystem.stationdata
 
 station_list = floodsystem.stationdata.build_station_list()
 
-the_result = floodsystem.geo.rivers_by_station_number(station_list,3)
+the_result = floodsystem.geo.rivers_by_station_number(station_list,9)
 
-print(the_result["River Aire"])
+print(the_result)
