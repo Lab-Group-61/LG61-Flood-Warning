@@ -10,9 +10,9 @@ def run():
 
     # part 2:
     the_mapping = floodsystem.geo.stations_by_river(station_list)
-    print("Stations on River Cam are {}".format(sorted(the_mapping["River Cam"])))
-    print("Stations on River Aire are {}".format(sorted(the_mapping["River Aire"])))
-    print("Stations on River Thames are {}".format(sorted(the_mapping["River Thames"])))
+    print("Stations on River Cam are {}".format(the_mapping["River Cam"]))
+    print("Stations on River Aire are {}".format(the_mapping["River Aire"]))
+    print("Stations on River Thames are {}".format(the_mapping["River Thames"]))
 
 
 if __name__ == "__main__":
