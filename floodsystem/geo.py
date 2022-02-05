@@ -43,7 +43,7 @@ def rivers_with_station(stations):
 def stations_by_river(stations):
     # Input: a list of stations
     # Output (rivers_mapping) : a dictionary that maps the names of the rivers in the inputs 
-    # to a list containing the related station names
+    # to a list containing the related station names(sorted)
 
     # initialize the dictionary with keywords (rivers)
     # the river_with_station function is called to find the names of rivers
@@ -56,6 +56,10 @@ def stations_by_river(stations):
     for station in stations:
         # append the stations to rivers
         river_mapping[station.river].append(station.name)
+
+    # sort the stations on each river in alphabetical order
+    for key in river_mapping:
+        river_mapping[key] = sorted(river_mapping[key])
         
     return river_mapping
 
