@@ -42,8 +42,8 @@ def rivers_with_station(stations):
 
 def stations_by_river(stations):
     # Input: a list of stations
-    # Output (rivers_mapping) : a dictionary that maps the names of the rivers 
-    # in the inputs to a list containing the related station names
+    # Output (rivers_mapping) : a dictionary that maps the names of the rivers in the inputs 
+    # to a list containing the related station names
 
     # initialize the dictionary with keywords (rivers)
     # the river_with_station function is called to find the names of rivers
@@ -63,24 +63,26 @@ def rivers_by_station_number(stations, N):
     # input: a list of stations and an integer N
     # output: a list containing first Nth stations with largest number of stations
 
-
     # calling station_by_river(in task 1D, part 2) to find the river->station dictionary
     input_rivers = stations_by_river(stations)
     
-    # temp is the river->station_number dictionary
+    # if N is out of range:
+    if N not in range(0,len(input_rivers)+1):
+        raise ValueError("the N is not in the correct range")
+    
+    # temp is a list, each element is a (river,station number) tuple
     temp = []
     for key in input_rivers:
         temp.append((key,len(input_rivers[key])))
 
-    # sort the dictionary and turn into a list containing (river,station number) tuples, 
-    # sorted by station number
+    # sorted temp by station number
     sorted_river = sorted_by_key(temp,1, reverse= True)
     
     # include the rivers with repeated number of stations into the output
     repeated_index = True # to record if there is any repitition
     i = N # i is the actually size of output list. i = N + repeated number of river at position N
     while repeated_index == True:
-        if sorted_river[i][1] == sorted_river[i-1][1]:
+        if i < len(sorted_river) and sorted_river[i][1] == sorted_river[i-1][1]:
             i += 1
         else:
             repeated_index = False

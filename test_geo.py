@@ -31,10 +31,20 @@ def test_rivers_with_station():
 
     return
 
-    
 
-test_rivers_with_station()
+def test_river_by_station_number():
+
+    # check the case when N is not in range
+    with pytest.raises(ValueError):
+        floodsystem.geo.rivers_by_station_number(station_list,-1)
+    with pytest.raises(ValueError):
+        floodsystem.geo.rivers_by_station_number(station_list,951)
+
+    # check the specific output when N = 9
+    assert floodsystem.geo.rivers_by_station_number(station_list,9) == [('River Thames', 55),
+    ('River Avon', 31), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24),
+    ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Colne', 18),
+    ('River Ouse', 18)]
 
 
-
-
+test_river_by_station_number()
