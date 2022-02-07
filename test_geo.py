@@ -26,7 +26,7 @@ def test_stations_within_radius(): # Test for Task 1C
     assert type(radius_list) is list
     assert all(radius_list[i] <= radius_list[i+1] for i in range(len(radius_list) - 1)) == True # Checking that the list is sorted properly
 
-def test_rivers_with_station():
+def test_rivers_with_station(): # Test for Task 1D, part 1
 
     output  = floodsystem.geo.rivers_with_station(station_list)
 
@@ -48,7 +48,7 @@ def test_rivers_with_station():
     'Amwell Loop', 'Arkle Beck']
     return
 
-def test_stations_by_river():
+def test_stations_by_river(): # Test for task 1D, part 2
 
     the_map = floodsystem.geo.stations_by_river(station_list)
 
@@ -64,7 +64,7 @@ def test_stations_by_river():
     return
 
 
-def test_river_by_station_number():
+def test_river_by_station_number(): # Test for Task 1E
 
     # check the case when N is not in range
     with pytest.raises(ValueError):
