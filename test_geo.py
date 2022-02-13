@@ -1,4 +1,4 @@
-"""Unit test for the geo module"""
+"""Unit test for the geo submodule"""
 from turtle import distance
 from numpy import sort
 import pytest

@@ -1,4 +1,4 @@
-"""Unit test for the utils module"""
+"""Unit test for the utils submodule"""
 
 import floodsystem.utils
 

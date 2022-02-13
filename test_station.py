@@ -1,7 +1,7 @@
 # Copyright (C) 2018 Garth N. Wells
 #
 # SPDX-License-Identifier: MIT
-"""Unit test for the station module"""
+"""Unit test for the station submodule"""
 
 from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
 
@@ -25,6 +25,7 @@ def test_create_monitoring_station():
     assert s.river == river
     assert s.town == town
     assert s.typical_range_consistent() == False # Test for Task 1F
+    assert s.relative_water_level() == None # Test for Task 2B
 
     t = MonitoringStation("test-t-id", m_id, label, coord, trange, river, town)
     a = [s,t]
