@@ -11,7 +11,8 @@ def run():
 
     output_list = stations_level_over_threshold(station_list,0.8)
 
-    print(output_list)
+    for element in output_list:
+        print(element[0].name, element[1])
 
 if __name__ == "__main__":
     print("*** Task 2B: CUED Part IA Flood Warning System ***")
