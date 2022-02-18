@@ -53,11 +53,8 @@ class MonitoringStation:
         if self.latest_level != None:
             if self.typical_range_consistent() == False:
                 return None
-            elif self.latest_level > self.typical_range[1]:
-                ratio = self.latest_level/self.typical_range[1]
-                return ratio
             else:
-                ratio = (self.latest_level - self.typical_range[0])/self.typical_range[1]
+                ratio = (self.latest_level - self.typical_range[0])/(self.typical_range[1] - self.typical_range[0])
                 return ratio
 
 
