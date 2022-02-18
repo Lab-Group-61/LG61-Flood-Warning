@@ -7,7 +7,7 @@ def stations_level_over_threshold(stations, tol):
     # (Task 2B)
     output = []
     for station in stations:
-        st_id = (station.name,station.relative_water_level())
+        st_id = (station,station.relative_water_level())
         if station.relative_water_level() != None:
             if station.relative_water_level() > tol:
                 output.append(st_id)
