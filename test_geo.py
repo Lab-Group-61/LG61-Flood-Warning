@@ -61,5 +61,5 @@ def test_river_by_station_number(): # Test for Task 1E
     with pytest.raises(ValueError):
         floodsystem.geo.rivers_by_station_number(station_list,-1)
     with pytest.raises(ValueError):
-        floodsystem.geo.rivers_by_station_number(station_list,951)
+        floodsystem.geo.rivers_by_station_number(station_list,1000)
     return
