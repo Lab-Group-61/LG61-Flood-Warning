@@ -21,4 +21,7 @@ def stations_highest_rel_level(stations, N):
     # output is a list containing the Nth stations with highest reletive water level
 
     # Set the tolerance to minus infinity and return the first N elements
+    if N > len(stations) or N <0:
+        raise ValueError("the size of the wanted ouput is out of range")
+
     return stations_level_over_threshold(stations,tol = float('-inf'))[0:N]
