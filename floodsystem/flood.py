@@ -18,7 +18,8 @@ def stations_level_over_threshold(stations, tol):
     
 def stations_highest_rel_level(stations, N):
     # (Task 2C)
-    # output is a list containing the N stations with highest relative water level
+    # output is a list containing the N (station,relative water level) tuples
+    # of the N stations with higheset relative water level
 
     # Set the tolerance to minus infinity and return the first N elements
     if N > len(stations) or N <0:

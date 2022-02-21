@@ -16,6 +16,8 @@ def run():
     update_water_levels(station_list)
 
     output_list = stations_highest_rel_level(station_list,5)
+    # each element in the list is a (station, relative water level) tuple, 
+    # hence element[0] is the station
 
     for element in output_list:
         # Fetch data over past 10 days & plot graph
