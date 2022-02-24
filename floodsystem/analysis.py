@@ -7,5 +7,9 @@ from datetime import datetime, timedelta
 def polyfit(dates, levels, p):
     x = matplotlib.dates.date2num(dates)
     y = levels
-    p_coeff = np.polyfit(x, y, p)
-    return p_coeff
+    time_shift = x[0]
+    # Using shifted x values, find coefficient of best-fit
+    p_coeff = np.polyfit(x-time_shift, y, p)
+    # Convert coefficient into a polynomial that can be evaluated
+    poly = np.poly1d(p_coeff)
+    return poly,time_shift
