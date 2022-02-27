@@ -13,3 +13,7 @@ def polyfit(dates, levels, p):
     # Convert coefficient into a polynomial that can be evaluated
     poly = np.poly1d(p_coeff)
     return poly,time_shift
+
+def grad(poly,time_shift, now):
+    der = np.polyder(poly)
+    return der(now - time_shift)
