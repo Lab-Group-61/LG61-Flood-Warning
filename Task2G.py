@@ -3,7 +3,6 @@
 # Moderate :  1 < Relative level <= 2 AND gradient from best-fit line < threshold value
 # High: 2 <Relative level < 5 OR gradient >= threshold value
 # Severe: Relative level >= 5
-from lib2to3.pgen2 import grammar
 import numpy as np
 import datetime
 import matplotlib
@@ -80,19 +79,21 @@ def run():
                 severe.append(station)
 
     # print out the results
-    print("The stations under severe danger are:")
+    print("\n The stations under severe danger are:")
     for station in severe:
         print(station.name)
-    print("The stations under high danger are:")
+    print("\n The stations under high danger are:")
     for station in high:
         print(station.name)
-    print("The stations under modereate danger are:")
+    print("\n The stations under modereate danger are:")
     for station in moderate:
         print(station.name)
-    print("The stations with unclear data are:")
+    print("\n The stations with unclear data are:")
     for station in unclear_data:
         print(station.name)
+
     return
+
 
 
 
